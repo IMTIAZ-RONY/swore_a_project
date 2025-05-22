@@ -14,6 +14,6 @@ class CounterController extends GetxController{
       counter.value=counter.value-2;
     }*/
     update();
-  }
+  }//
 
 }
