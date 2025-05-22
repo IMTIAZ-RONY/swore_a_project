@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/counter_controller.dart';
+import '../controllers/counter_controller.dart';
 import '../widgets/action_button.dart';
 import '../widgets/glass_container.dart';
 
