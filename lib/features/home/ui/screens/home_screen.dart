@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swore_a_project/features/create/ui/controllers/notes_controller.dart';
 import 'package:swore_a_project/features/create/ui/screen/note_create_view.dart';
-import 'package:swore_a_project/features/home/ui/controllers/counter_controller.dart';
+import 'package:swore_a_project/features/home/ui/controllers/home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Offset position = Offset(250, 500); //Initial FAB position
   final HomeController homeController = Get.put(HomeController());
-
+final NotesController noteController=Get.put(NotesController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 separatorBuilder: (_, __) {
                   return SizedBox(height: 8);
                 },
-                itemCount: 10,
+                itemCount: noteController.notes.length,
               );
             }
           }),
