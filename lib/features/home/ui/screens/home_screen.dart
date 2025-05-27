@@ -113,14 +113,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            noteController.notes[index].title ?? "Untitled",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          Row(
+                            children: [
+                              Expanded(child:Text(
+                                noteController.notes[index].title ?? "Untitled",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ), ),
+
+                              IconButton(
+                                onPressed:
+                                    () => noteController.deleteNote(index),
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                padding:EdgeInsets.all(0),
+                                constraints: BoxConstraints(),
+                              ),
+                            ],
                           ),
+
                           Text(
                             noteController.notes[index].description!,
                             style: TextStyle(
@@ -130,20 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                onPressed:
-                                    () => noteController.deleteNote(index),
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                              ),
-                            ],
-                          ),
+
 
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
