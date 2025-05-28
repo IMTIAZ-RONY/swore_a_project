@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder:
           (context) => AlertDialog(
             backgroundColor: Colors.grey[900],
-            title: Text('Delete Note', style: TextStyle(color: Colors.white)),
+            title: Text('Delete!', style: TextStyle(color: Colors.white)),
             content: Text(
               'Are you sure you want to delete this note?',
               style: TextStyle(color: Colors.white70),
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               IconButton(
                                 onPressed:
-                                    () => noteController.deleteNote(index),
+                                    () => _showDeleteDialog(index),
                                 icon: Icon(
                                   Icons.delete,
                                   color: Colors.white,
